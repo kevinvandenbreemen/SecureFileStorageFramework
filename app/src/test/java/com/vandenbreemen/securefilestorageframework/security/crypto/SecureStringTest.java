@@ -1,10 +1,10 @@
-package com.vandenbreemen.securefilestorageframework.security.crypto
+package com.vandenbreemen.securefilestorageframework.security.crypto;
 
-import org.junit.Test
-import org.spongycastle.pqc.math.linearalgebra.ByteUtils
+import org.junit.Test;
+import org.spongycastle.pqc.math.linearalgebra.ByteUtils;
 
-import static junit.framework.Assert.assertEquals
-import static junit.framework.Assert.assertTrue
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
 
 
 /**
