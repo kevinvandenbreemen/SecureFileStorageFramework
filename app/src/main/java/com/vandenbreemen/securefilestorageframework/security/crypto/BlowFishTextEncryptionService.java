@@ -2,6 +2,7 @@ package com.vandenbreemen.securefilestorageframework.security.crypto;
 
 
 import com.vandenbreemen.securefilestorageframework.data.Serialization;
+import com.vandenbreemen.securefilestorageframework.logging.SystemLog;
 import com.vandenbreemen.securefilestorageframework.security.BytesToBits;
 
 import org.spongycastle.crypto.engines.TwofishEngine;
@@ -54,7 +55,7 @@ public class BlowFishTextEncryptionService implements EncryptionService, ObjectE
 
             return outBuf2;
         } catch (Exception e) {
-            //SystemLog.get().error("Error encrypting", e);
+            SystemLog.get().error("Error encrypting", e);
         } finally {
             for (SecureString ss : keyStrings) {    //	Dump temp keys from memory
                 ss.finalize();
@@ -84,7 +85,7 @@ public class BlowFishTextEncryptionService implements EncryptionService, ObjectE
 
             return clear;
         } catch (Exception e) {
-            //SystemLog.get().error("Error decrypting", e);
+            SystemLog.get().error("Error decrypting", e);
         } finally {
             for (SecureString ss : keyStrings) {    //	Dump temp keys from memory
                 ss.finalize();

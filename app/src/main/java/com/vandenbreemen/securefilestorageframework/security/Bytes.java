@@ -1,6 +1,7 @@
 package com.vandenbreemen.securefilestorageframework.security;
 
 
+import com.vandenbreemen.securefilestorageframework.logging.SystemLog;
 import com.vandenbreemen.securefilestorageframework.message.MSSRuntime;
 
 import java.io.File;
@@ -66,7 +67,7 @@ public class Bytes {
             fis.read(bytesFromFile);
             return bytesFromFile;
         } catch (Exception ex) {
-            //SystemLog.get().error("Unable to load data from file", ex);
+            SystemLog.get().error("Unable to load data from file", ex);
             throw new MSSRuntime("Unexpected error loading from file", ex);
         }
     }

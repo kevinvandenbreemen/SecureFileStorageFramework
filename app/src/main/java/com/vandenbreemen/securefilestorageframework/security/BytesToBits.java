@@ -1,6 +1,7 @@
 package com.vandenbreemen.securefilestorageframework.security;
 
 
+import com.vandenbreemen.securefilestorageframework.logging.SystemLog;
 import com.vandenbreemen.securefilestorageframework.message.MSSRuntime;
 
 import org.spongycastle.crypto.generators.SCrypt;
@@ -195,7 +196,7 @@ public class BytesToBits {
         try {
             return key.getBytes("UTF-8");
         } catch (Exception ex) {
-            //SystemLog.get().error("Error getting bytes", ex);
+            SystemLog.get().error("Error getting bytes", ex);
             return null;
         }
     }

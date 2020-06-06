@@ -2,6 +2,7 @@ package com.vandenbreemen.securefilestorageframework.security.crypto;
 
 
 import com.vandenbreemen.securefilestorageframework.data.Serialization;
+import com.vandenbreemen.securefilestorageframework.logging.SystemLog;
 import com.vandenbreemen.securefilestorageframework.security.BytesToBits;
 
 import org.spongycastle.crypto.engines.AESEngine;
@@ -61,7 +62,7 @@ public class AESEncryptionService implements EncryptionService, ObjectEncryptor 
 
             return outBuf2;
         } catch (Exception e) {
-            //SystemLog.get().error("Error encrypting", e);
+            SystemLog.get().error("Error encrypting", e);
         } finally {
             for (SecureString ss : keyBuckets) {
                 ss.finalize();
@@ -94,7 +95,7 @@ public class AESEncryptionService implements EncryptionService, ObjectEncryptor 
 
             return clear;
         } catch (Exception e) {
-            //SystemLog.get().error("Error decryption", e);
+            SystemLog.get().error("Error decryption", e);
         } finally {
             for (SecureString ss : keyBuckets) {
                 ss.finalize();

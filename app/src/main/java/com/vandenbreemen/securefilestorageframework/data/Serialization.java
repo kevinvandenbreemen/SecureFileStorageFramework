@@ -1,6 +1,7 @@
 package com.vandenbreemen.securefilestorageframework.data;
 
 
+import com.vandenbreemen.securefilestorageframework.logging.SystemLog;
 import com.vandenbreemen.securefilestorageframework.message.MSSRuntime;
 
 import java.io.ByteArrayInputStream;
@@ -36,7 +37,7 @@ public class Serialization {
             oos.writeObject(object);
             return bos.toByteArray();
         } catch (Exception ex) {
-            //SystemLog.get().error("Error serializing object!", ex);
+            SystemLog.get().error("Error serializing object!", ex);
             throw new MSSRuntime("Could not serialize data", ex);
         }
     }
@@ -53,7 +54,7 @@ public class Serialization {
             ObjectInputStream ois = new ObjectInputStream(bis);
             return ois.readObject();
         } catch (Exception ex) {
-            //SystemLog.get().error("Unable to deserialize data", ex);
+            SystemLog.get().error("Unable to deserialize data", ex);
             throw new MSSRuntime("Could not de-serialize data", ex);
         }
     }
