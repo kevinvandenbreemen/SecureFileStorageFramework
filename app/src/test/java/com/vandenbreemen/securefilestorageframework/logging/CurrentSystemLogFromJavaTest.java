@@ -11,7 +11,7 @@ public class CurrentSystemLogFromJavaTest {
     public void testAbleToLogWithParameters() {
 
         SystemOutLog log = new SystemOutLog();
-        log.info("This is a {}", "test");
+        log.info("This {} is a {}", "not", "test");
         log.warn("This is a {}", "warning");
         log.error("Uh oh");
         log.error("A giant error {}", new Throwable(), "occurred");
